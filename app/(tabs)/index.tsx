@@ -7,25 +7,61 @@
 
 
 import React from 'react';
-import {View, Text} from 'react-native';
+import { SafeAreaView, StyleSheet, TextInput } from 'react-native';
 
-const ViewBoxesWithColorAndText = () => {
-	return (
-		<View
-			style={{
-				flexDirection: 'row',
-				height: 100,
-				padding: 10,
-        top: 50,
-			}}>
-			<View style={{backgroundColor: 'blue', flex: 0.3}} />
-			<View style={{backgroundColor: 'red', flex: 0.5}} />
-			<Text style={{ color: 'white'}}>Hello World !</Text>
-		</View>
-	);
-};
+const TextInputExample = () => {
+  const [text, onChangeText] = React.useState('Useless Text');
+  const [number, onChangeNumber] = React.useState('');
 
-export default ViewBoxesWithColorAndText
+  return (
+    <SafeAreaView>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
+      />
+      <TextInput
+       style={styles.input}
+       onChangeText={onChangeNumber}
+       value={number}
+       placeholder='Useless placeholder'
+       keyboardType='numeric'
+       />
+    </SafeAreaView>
+  )
+}
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    color: 'white'
+  },
+});
+
+export default TextInputExample
+// import {View, Text} from 'react-native';
+
+// const ViewBoxesWithColorAndText = () => {
+// 	return (
+// 		<View
+// 			style={{
+// 				flexDirection: 'row',
+// 				height: 100,
+// 				padding: 10,
+//         top: 50,
+// 			}}>
+// 			<View style={{backgroundColor: 'blue', flex: 0.3}} />
+// 			<View style={{backgroundColor: 'red', flex: 0.5}} />
+// 			<Text style={{ color: 'white'}}>Hello World !</Text>
+// 		</View>
+
+// 	);
+// };
+
+// export default ViewBoxesWithColorAndText
 // export default function HomeScreen() {
 //   return (
 //     <ParallaxScrollView
